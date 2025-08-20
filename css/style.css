@@ -1,0 +1,328 @@
+/*
+ * Styling for Mesrenyame Dogbe’s personal website.  This stylesheet draws
+ * inspiration from Adora Nwodo’s minimalist portfolio (adoranwodo.com) but
+ * introduces its own colour palette and layout to best showcase the
+ * accomplishments and projects of a dedicated open‑source advocate.  It
+ * emphasises clean typography, generous white space and a responsive
+ * two‑column hero section.  A sliding sidebar provides quick navigation
+ * between sections without cluttering the main canvas.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Lora:wght@400;500;700&display=swap');
+
+/* Root variables to easily tweak colours and spacing. */
+:root {
+  --primary-color: #007b75;        /* teal for buttons and highlights */
+  --secondary-color: #003d3b;      /* deep teal for backgrounds */
+  --light-bg: #f9fafb;            /* subtle off‑white for sections */
+  --dark-text: #0f0f0f;           /* near‑black text for high contrast */
+  --muted-text: #555;             /* muted grey for secondary copy */
+  --max-width: 1200px;            /* central container max width */
+  --sidebar-width: 280px;          /* width of the sliding menu */
+  --transition-duration: 0.4s;    /* consistent animation timing */
+}
+
+/* Global reset to remove default browser padding and margins. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  color: var(--dark-text);
+  background: var(--light-bg);
+  overflow-x: hidden; /* prevent horizontal scroll when sidebar opens */
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: var(--light-bg);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Navigation bar styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+/* Hamburger icon for menu toggle */
+.hamburger {
+  font-size: 1.6rem;
+  cursor: pointer;
+  user-select: none;
+  border: 2px solid var(--secondary-color);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  color: var(--secondary-color);
+}
+
+/* Sidebar menu styles */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: var(--sidebar-width);
+  height: 100vh;
+  background: white;
+  box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: right var(--transition-duration) ease;
+  overflow-y: auto;
+}
+
+.side-menu.open {
+  right: 0;
+}
+
+.side-menu-header {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.side-menu-header img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+}
+
+.side-menu ul {
+  list-style: none;
+  width: 100%;
+}
+
+.side-menu li {
+  margin: 0.5rem 0;
+}
+
+.side-menu a {
+  color: var(--secondary-color);
+  font-weight: 500;
+  padding: 0.5rem 0;
+  display: block;
+  width: 100%;
+}
+
+.side-menu a:hover {
+  color: var(--primary-color);
+}
+
+/* Hero section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max-width);
+  margin: 6rem auto 4rem auto;
+  padding: 0 1.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-content {
+  flex: 1 1 480px;
+  max-width: 600px;
+  padding: 1rem 0;
+}
+
+.hero-content h1 {
+  font-family: 'Lora', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  color: var(--muted-text);
+  margin-bottom: 1.5rem;
+}
+
+.buttons .btn {
+  display: inline-block;
+  padding: 0.65rem 1.25rem;
+  margin-right: 0.5rem;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.buttons .btn:hover {
+  background: var(--secondary-color);
+}
+
+.hero-image {
+  flex: 1 1 300px;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Section styling */
+.section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  background: white;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.section h2 {
+  font-family: 'Lora', serif;
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
+  color: var(--secondary-color);
+}
+
+.section p,
+.section li,
+.section small {
+  font-size: 1rem;
+  color: var(--muted-text);
+  line-height: 1.5;
+}
+
+.section ul {
+  list-style: disc inside;
+  margin-left: 1rem;
+}
+
+.section ul li {
+  margin-bottom: 0.5rem;
+}
+
+/* Speaking events timeline */
+.timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.event {
+  border-left: 3px solid var(--primary-color);
+  padding-left: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.event h3 {
+  font-size: 1.25rem;
+  color: var(--secondary-color);
+  margin-bottom: 0.25rem;
+}
+
+.event small {
+  font-size: 0.85rem;
+  color: var(--muted-text);
+}
+
+/* Project cards */
+.project-list {
+  display: grid;
+  /* Increase the minimum width of project cards so long titles wrap more naturally */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  padding: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  background: #fcfdfd;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.project-card h3 {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+  overflow-wrap: anywhere;
+}
+
+.project-card p {
+  font-size: 0.9rem;
+  color: var(--muted-text);
+}
+
+/* Contact section */
+.contact p {
+  margin-bottom: 1rem;
+}
+
+.contact a {
+  font-weight: 600;
+}
+
+footer {
+  background: var(--secondary-color);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-content,
+  .hero-image {
+    max-width: 100%;
+  }
+  .hero-image img {
+    max-width: 300px;
+  }
+  .navbar {
+    padding: 1rem;
+  }
+}
