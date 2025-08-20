@@ -326,3 +326,53 @@ footer {
     padding: 1rem;
   }
 }
+
+/*-------------------------------------------------------------------------*/
+/* Custom styling for the YouTube video section
+ *
+ * The YouTube section adopts a similar look and feel to other sections
+ * while ensuring that embedded videos remain responsive. Videos are
+ * displayed in a grid that adjusts to the available screen width. Each
+ * video is wrapped in a container with a fixed aspect ratio (16:9) so
+ * that the iframes scale smoothly across breakpoints. A subtle box
+ * shadow and rounded corners give the embeds a polished appearance.
+ */
+.youtube {
+  background: var(--light-bg);
+  padding-top: 2rem;
+}
+
+.youtube h2 {
+  margin-bottom: 0.75rem;
+  color: var(--secondary-color);
+}
+
+.youtube p {
+  color: var(--muted-text);
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
