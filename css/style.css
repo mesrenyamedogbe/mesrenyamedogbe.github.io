@@ -83,6 +83,41 @@ header {
   color: var(--secondary-color);
 }
 
+/* Navigation actions container groups the theme toggle and hamburger icon.
+ * It ensures the two controls sit next to one another on the right side
+ * of the header and are vertically centred.  A small gap separates
+ * them for clarity. */
+.nav-actions {
+  display: flex;
+  align-items: center;
+}
+
+/* Theme toggle button style.  It borrows the border and colour from
+ * the site’s secondary colour so that it blends in with the header.
+ * The icon inside (moon/sun) will be swapped by JavaScript.  Using
+ * a circular shape distinguishes it from the rectangular hamburger. */
+.theme-toggle {
+  font-size: 1.2rem;
+  cursor: pointer;
+  user-select: none;
+  border: 2px solid var(--secondary-color);
+  border-radius: 50%;
+  color: var(--secondary-color);
+  background: transparent;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.75rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.theme-toggle:hover {
+  background: var(--secondary-color);
+  color: #fff;
+}
+
 /* Sidebar menu styles */
 .side-menu {
   position: fixed;
@@ -375,4 +410,100 @@ footer {
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+/* -------------------------------------------------------------------------
+ * Dark mode styles
+ *
+ * A dark theme can be toggled on by adding the `dark-mode` class to the
+ * body element via JavaScript.  This section redefines key CSS variables
+ * for colours and adjusts the backgrounds and borders of major components.
+ * The goal is to preserve the overall layout while offering a comfortable
+ * viewing experience in low‑light conditions.  Most colours are
+ * represented via variables so that they automatically update when
+ * switched.  Additional selectors override hard‑coded backgrounds.
+ */
+
+body.dark-mode {
+  /* Override colour palette for dark mode */
+  --primary-color: #00bfa5;      /* bright teal for accents */
+  --secondary-color: #00766c;    /* deep teal for backgrounds */
+  --light-bg: #121212;          /* dark surface for body and sections */
+  --dark-text: #f5f5f5;         /* light text for contrast */
+  --muted-text: #b5b5b5;        /* softened grey for secondary copy */
+}
+
+/* Header adopts the dark surface colour */
+body.dark-mode header {
+  background: var(--light-bg);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Sidebar uses a slightly lighter dark tone and inherits text colour */
+body.dark-mode .side-menu {
+  background: #1d1d1d;
+  color: var(--dark-text);
+}
+body.dark-mode .side-menu a {
+  color: var(--dark-text);
+}
+body.dark-mode .side-menu a:hover {
+  color: var(--primary-color);
+}
+
+/* Section backgrounds switch to dark surfaces with subtle separators */
+body.dark-mode .section {
+  background: #1a1a1a;
+  border-bottom: 1px solid #333;
+}
+
+/* Hero content retains readability on dark backgrounds */
+body.dark-mode .hero-content h1 {
+  color: var(--dark-text);
+}
+
+/* Project cards adjust to darker surfaces */
+body.dark-mode .project-card {
+  background: #222;
+  border-color: #333;
+}
+body.dark-mode .project-card h3 {
+  color: var(--dark-text);
+}
+body.dark-mode .project-card p {
+  color: var(--muted-text);
+}
+
+/* Footer matches the section backgrounds but keeps the accent colour */
+body.dark-mode footer {
+  background: var(--secondary-color);
+  color: var(--dark-text);
+}
+
+/* Ensure timeline vertical line is visible on dark backgrounds */
+body.dark-mode .event {
+  border-left-color: var(--primary-color);
+}
+
+/* Buttons invert colours on dark mode for visibility */
+body.dark-mode .buttons .btn {
+  background: var(--primary-color);
+  color: #fff;
+}
+body.dark-mode .buttons .btn:hover {
+  background: var(--secondary-color);
+}
+
+/* YouTube section inherits dark surface */
+body.dark-mode .youtube {
+  background: var(--light-bg);
+}
+body.dark-mode .video-wrapper {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Adjust theme toggle hover state for dark background */
+body.dark-mode .theme-toggle:hover {
+  background: var(--primary-color);
+  color: #fff;
 }

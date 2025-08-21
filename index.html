@@ -12,7 +12,12 @@
   <header>
     <nav class="navbar">
       <div class="logo">Mesrenyame&nbsp;Dogbe</div>
-      <div class="hamburger" id="hamburger">☰</div>
+      <!-- Group actions (theme toggle and hamburger) together for better alignment -->
+      <div class="nav-actions">
+        <!-- Theme toggle button; icon will switch between moon and sun via JavaScript -->
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+        <div class="hamburger" id="hamburger">☰</div>
+      </div>
     </nav>
     <!-- Sliding sidebar menu -->
     <div class="side-menu" id="side-menu">
